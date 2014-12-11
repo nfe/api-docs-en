@@ -1,32 +1,4 @@
-﻿/**
-* 
-* @apiDefine Unauthorized
-*
-* @apiError Unauthorized API Key access was denied (401 HTTP Status).
-*/
-
-/**
-*
-* @apiDefine CompanyNotFound
-*
-* @apiError CompanyNotFound Company unique ID was not found (404 HTTP Status).
-*/
-
-/**
-*
-* @apiDefine ServiceInvoiceNotFound
-*
-* @apiError ServiceInvoiceNotFound Service invoice was not found based on the ID (404 HTTP Status).
-*/
-
-/**
-*
-* @apiDefine InvalidPageNumberOrCount
-*
-* @apiError InvalidPageNumberOrCount Page number or count are out of range or less than 0 (403 HTTP Status).
-*/
-
-/// <summary>
+﻿/// <summary>
 /// Notas Fiscais de Serviço
 /// </summary>
 [Authorize]
@@ -34,9 +6,9 @@
 public class ServiceInvoicesController : BaseAccountController
 {
     /**
-    * @api {get} companies/:company_id/serviceinvoices?pageCount=:page_count&pageIndex=:page_index List all service invoices
+    * @api {get} companies/:company_id/serviceinvoices?pageCount=:page_count&pageIndex=:page_index List all invoices
     * @apiName GetAll
-    * @apiGroup Service Invoices
+    * @apiGroup ServiceInvoices
     *
     * @apiParam {String} company_id Company unique ID.
     * @apiParam {Number} page_count Items per page.
@@ -220,9 +192,9 @@ public class ServiceInvoicesController : BaseAccountController
     { }
 
     /**
-    * @api {get} companies/:company_id/serviceinvoices/:id Get service invoice details
+    * @api {get} companies/:company_id/serviceinvoices/:id Get invoice details
     * @apiName Get
-    * @apiGroup Service Invoices
+    * @apiGroup ServiceInvoices
     *
     * @apiParam {String} company_id Company unique ID.
     * @apiParam {String} id Service invoice unique ID.
@@ -395,7 +367,7 @@ public class ServiceInvoicesController : BaseAccountController
     /**
     * @api {post} companies/:company_id/serviceinvoices Issue a service invoice
     * @apiName Issue
-    * @apiGroup Service Invoices
+    * @apiGroup ServiceInvoices
     *
     * @apiParam {String} company_id Company unique ID.
     * @apiParam {Object} borrower Borrower of services data as in tax registry.
@@ -461,7 +433,7 @@ public class ServiceInvoicesController : BaseAccountController
     /**
     * @api {delete} companies/:company_id/serviceinvoices/:id Cancel a service invoice
     * @apiName Cancel
-    * @apiGroup Service Invoices
+    * @apiGroup ServiceInvoices
     *
     * @apiParam {String} company_id Company unique ID.
     * @apiParam {String} id Service invoice unique ID.
@@ -508,7 +480,7 @@ public class ServiceInvoicesController : BaseAccountController
     /**
     * @api {get} companies/:company_id/serviceinvoices/:id/pdf Get PDF file of service invoice
     * @apiName GetPdf
-    * @apiGroup Service Invoices
+    * @apiGroup ServiceInvoices
     *
     * @apiParam {String} company_id Company unique ID.
     * @apiParam {String} id Service invoice unique ID.
@@ -539,7 +511,7 @@ public class ServiceInvoicesController : BaseAccountController
     /**
     * @api {get} companies/:company_id/serviceinvoices/:id/xml Get XML file of service invoice
     * @apiName GetXml
-    * @apiGroup Service Invoices
+    * @apiGroup ServiceInvoices
     *
     * @apiParam {String} company_id Company unique ID.
     * @apiParam {String} id Service invoice unique ID.
@@ -567,3 +539,27 @@ public class ServiceInvoicesController : BaseAccountController
     public async Task<IHttpActionResult> GetDocumentXml(string company_id, string id)
     { }
 }
+
+/**
+* @apiDefine Unauthorized
+*
+* @apiError Unauthorized API Key access was denied (401 HTTP Status).
+*/
+
+/**
+* @apiDefine CompanyNotFound
+*
+* @apiError CompanyNotFound Company unique ID was not found (404 HTTP Status).
+*/
+
+/**
+* @apiDefine ServiceInvoiceNotFound
+*
+* @apiError ServiceInvoiceNotFound Service invoice was not found based on the ID (404 HTTP Status).
+*/
+
+/**
+* @apiDefine InvalidPageNumberOrCount
+*
+* @apiError InvalidPageNumberOrCount Page number or count are out of range or less than 0 (403 HTTP Status).
+*/

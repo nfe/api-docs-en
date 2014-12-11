@@ -4,7 +4,7 @@ define({ "api": [
     "url": "companies/:company_id/serviceinvoices/:id",
     "title": "Cancel a service invoice",
     "name": "Cancel",
-    "group": "Service_Invoices",
+    "group": "ServiceInvoices",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -35,8 +35,8 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "./ServiceInvoices.cs",
-    "groupTitle": "Service_Invoices",
+    "filename": "src/ServiceInvoices.cs",
+    "groupTitle": "ServiceInvoices",
     "error": {
       "fields": {
         "Error 4xx": [
@@ -65,9 +65,9 @@ define({ "api": [
   {
     "type": "get",
     "url": "companies/:company_id/serviceinvoices/:id",
-    "title": "Get service invoice details",
+    "title": "Get invoice details",
     "name": "Get",
-    "group": "Service_Invoices",
+    "group": "ServiceInvoices",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -596,8 +596,8 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "./ServiceInvoices.cs",
-    "groupTitle": "Service_Invoices",
+    "filename": "src/ServiceInvoices.cs",
+    "groupTitle": "ServiceInvoices",
     "error": {
       "fields": {
         "Error 4xx": [
@@ -626,9 +626,9 @@ define({ "api": [
   {
     "type": "get",
     "url": "companies/:company_id/serviceinvoices?pageCount=:page_count&pageIndex=:page_index",
-    "title": "List all service invoices",
+    "title": "List all invoices",
     "name": "GetAll",
-    "group": "Service_Invoices",
+    "group": "ServiceInvoices",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -1192,8 +1192,8 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "./ServiceInvoices.cs",
-    "groupTitle": "Service_Invoices",
+    "filename": "src/ServiceInvoices.cs",
+    "groupTitle": "ServiceInvoices",
     "error": {
       "fields": {
         "Error 4xx": [
@@ -1224,7 +1224,7 @@ define({ "api": [
     "url": "companies/:company_id/serviceinvoices/:id/pdf",
     "title": "Get PDF file of service invoice",
     "name": "GetPdf",
-    "group": "Service_Invoices",
+    "group": "ServiceInvoices",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -1255,8 +1255,8 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "./ServiceInvoices.cs",
-    "groupTitle": "Service_Invoices",
+    "filename": "src/ServiceInvoices.cs",
+    "groupTitle": "ServiceInvoices",
     "error": {
       "fields": {
         "Error 4xx": [
@@ -1287,7 +1287,7 @@ define({ "api": [
     "url": "companies/:company_id/serviceinvoices/:id/xml",
     "title": "Get XML file of service invoice",
     "name": "GetXml",
-    "group": "Service_Invoices",
+    "group": "ServiceInvoices",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -1318,8 +1318,8 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "./ServiceInvoices.cs",
-    "groupTitle": "Service_Invoices",
+    "filename": "src/ServiceInvoices.cs",
+    "groupTitle": "ServiceInvoices",
     "error": {
       "fields": {
         "Error 4xx": [
@@ -1350,7 +1350,7 @@ define({ "api": [
     "url": "companies/:company_id/serviceinvoices",
     "title": "Issue a service invoice",
     "name": "Issue",
-    "group": "Service_Invoices",
+    "group": "ServiceInvoices",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -1629,8 +1629,8 @@ define({ "api": [
       ]
     },
     "version": "0.0.0",
-    "filename": "./ServiceInvoices.cs",
-    "groupTitle": "Service_Invoices",
+    "filename": "src/ServiceInvoices.cs",
+    "groupTitle": "ServiceInvoices",
     "error": {
       "fields": {
         "Error 4xx": [
