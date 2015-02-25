@@ -180,7 +180,7 @@ public class CompaniesController
     { }
 
     /**
-    * @api {post} companies/ Create a Company
+    * @api {post} companies Create a Company
     * @apiName Issue
     * @apiGroup Companies
     *
@@ -188,11 +188,11 @@ public class CompaniesController
     * @apiParam {String} [company.tradeName] Trade name of company.
     * @apiParam {Number} company.federalTaxNumber Federal tax number.
     * @apiParam {String} company.email Email of company.
-    * @apiParam {Object} company.address The address data.
+    * @apiParam {Object} [company.address] The address data.
     * @apiParam {String} company.address.country Country code with 3 alpha based on ISO 3166-1 alpha-3.
     * @apiParam {String} [company.address.postalCode] Postal code, optional foreign borrowers.
     * @apiParam {String} company.address.street The street name.
-    * @apiParam {String} [company.address.number] The number of address.
+    * @apiParam {String} company.address.number The number of address.
     * @apiParam {String} [company.address.additionalInformation] Any additional information of address.
     * @apiParam {String} [company.address.district] District of address, optional foreign borrowers.
     * @apiParam {Object} [company.address.city] The city data.
@@ -200,10 +200,8 @@ public class CompaniesController
     * @apiParam {Object} [company.address.city.name] City name.
     * @apiParam {String} [company.address.state] State abbreviation, optional foreign borrowers.
     * @apiParam {String} company.openningDate Company openning date.
-    * @apiParam {String='LucroReal','LucroPresumido','SimplesNacional','MicroempreendedorIndividual','Isento'} [company.taxRegime] Company tax regime.
-
+    * @apiParam {String='LucroReal','LucroPresumido','SimplesNacional','MicroempreendedorIndividual','Isento'} company.taxRegime Company tax regime.
     * @apiParam {String='EmpresaPublica', 'SociedadeEconomiaMista', 'SociedadeAnonimaAberta', 'SociedadeAnonimaFechada', 'SociedadeEmpresariaLimitada', 'SociedadeEmpresariaemNomeColetivo', 'SociedadeEmpresariaemComanditaSimples', 'SociedadeEmpresariaemComanditaporAcoes', 'SociedadeemContaParticipacao', 'Empresario','Cooperativa', 'ConsorcioSociedades', 'GrupoSociedades', 'EmpresaDomiciliadaExterior', 'ClubeFundoInvestimento','SociedadeSimplesPura', 'SociedadeSimplesLimitada', 'SociedadeSimplesemNomeColetivo','SociedadeSimplesemComanditaSimples', 'EmpresaBinacional', 'ConsorcioEmpregadores', 'ConsorcioSimples','EireliNaturezaEmpresaria','EireliNaturezaSimples', 'ServicoNotarial', 'FundacaoPrivada', 'ServicoSocialAutonomo', 'CondominioEdilicio', 'ComissaoConciliacaoPrevia', 'EntidadeMediacaoArbitragem', 'PartidoPolitico', 'EntidadeSindical', 'EstabelecimentoBrasilFundacaoAssociacaoEstrangeiras', 'FundacaoAssociacaoDomiciliadaExterior', 'OrganizacaoReligiosa', 'ComunidadeIndigena', 'FundoPrivado', 'AssociacaoPrivada'} company.legalNature Company legal nature.
-    * @apiParam {String} [company.legalNature] Company legal nature.
     * @apiParam {Number} [company.regionalTaxNumber] State tax number.
     * @apiParam {Number} company.municipalTaxNumber Municipal tax number.
     * @apiParam {String} [company.rpsSerialNumber] Service invoice global RPS Serial number.
@@ -216,8 +214,9 @@ public class CompaniesController
     * @apiParam {String='None','Active','Overdue','Pending'} [company.certificate.status] Status.
     *
     * @apiUse Unauthorized
-    * @apiUse CompanyNotFound
     * @apiUse ServiceInvoiceNotFound
+    *
+    * @apiError BadRequest
     *
     * @apiSuccessExample Success-Response:
     *     HTTP/1.1 202 Accepted

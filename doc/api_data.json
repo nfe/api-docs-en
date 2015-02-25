@@ -524,7 +524,7 @@
   },
   {
     "type": "post",
-    "url": "companies/",
+    "url": "companies",
     "title": "Create a Company",
     "name": "Issue",
     "group": "Companies",
@@ -562,7 +562,7 @@
           {
             "group": "Parameter",
             "type": "Object",
-            "optional": false,
+            "optional": true,
             "field": "company.address",
             "description": "<p>The address data.</p> "
           },
@@ -590,7 +590,7 @@
           {
             "group": "Parameter",
             "type": "String",
-            "optional": true,
+            "optional": false,
             "field": "company.address.number",
             "description": "<p>The number of address.</p> "
           },
@@ -653,7 +653,7 @@
               "'MicroempreendedorIndividual'",
               "'Isento'"
             ],
-            "optional": true,
+            "optional": false,
             "field": "company.taxRegime",
             "description": "<p>Company tax regime.</p> "
           },
@@ -790,6 +790,30 @@
         ]
       }
     },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "BadRequest",
+            "description": ""
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>API Key access was denied (401 HTTP Status).</p> "
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "ServiceInvoiceNotFound",
+            "description": "<p>Service invoice was not found based on the ID (404 HTTP Status).</p> "
+          }
+        ]
+      }
+    },
     "success": {
       "examples": [
         {
@@ -801,31 +825,7 @@
     },
     "version": "0.0.0",
     "filename": "src/CompaniesController.cs",
-    "groupTitle": "Companies",
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "Unauthorized",
-            "description": "<p>API Key access was denied (401 HTTP Status).</p> "
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "CompanyNotFound",
-            "description": "<p>Company unique ID was not found (404 HTTP Status).</p> "
-          },
-          {
-            "group": "Error 4xx",
-            "optional": false,
-            "field": "ServiceInvoiceNotFound",
-            "description": "<p>Service invoice was not found based on the ID (404 HTTP Status).</p> "
-          }
-        ]
-      }
-    }
+    "groupTitle": "Companies"
   },
   {
     "type": "delete",
