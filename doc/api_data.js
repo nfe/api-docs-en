@@ -1,5 +1,833 @@
 define({ "api": [
   {
+    "type": "get",
+    "url": "companies/:company_id_or_tax_number",
+    "title": "Get company details",
+    "name": "Get",
+    "group": "Companies",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "company.id",
+            "description": "<p>The Company unique ID.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "company.federalTaxNumber",
+            "description": "<p>Federal tax number.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "company.name",
+            "description": "<p>Legal name of company.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "company.tradeName",
+            "description": "<p>Trade name of company.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "company.email",
+            "description": "<p>Email of company.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "company.address",
+            "description": "<p>The address data.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "company.address.country",
+            "description": "<p>Country code with 3 alpha based on ISO 3166-1 alpha-3.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "company.address.postalCode",
+            "description": "<p>Postal code, optional foreign borrowers.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "company.address.street",
+            "description": "<p>The street name.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "company.address.number",
+            "description": "<p>The number of address.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "company.address.additionalInformation",
+            "description": "<p>Any additional information of address.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "company.address.district",
+            "description": "<p>District of address, optional foreign borrowers.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "field": "company.address.city",
+            "description": "<p>The city data.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "field": "company.address.city.code",
+            "description": "<p>City code based on IBGE data.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "field": "company.address.city.name",
+            "description": "<p>City name.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "company.address.state",
+            "description": "<p>State abbreviation, optional foreign borrowers.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "company.openningDate",
+            "description": "<p>Company openning date.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "allowedValues": [
+              "'LucroReal'",
+              "'LucroPresumido'",
+              "'SimplesNacional'",
+              "'MicroempreendedorIndividual'",
+              "'Isento'"
+            ],
+            "optional": true,
+            "field": "company.taxRegime",
+            "description": "<p>Company tax regime.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "company.legalNature",
+            "description": "<p>Company legal nature.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": true,
+            "field": "company.regionalTaxNumber",
+            "description": "<p>State tax number.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "company.municipalTaxNumber",
+            "description": "<p>Municipal tax number.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "company.rpsSerialNumber",
+            "description": "<p>Service invoice global RPS Serial number.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": true,
+            "field": "company.rpsNumber",
+            "description": "<p>Service invoice global RPS number.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "allowedValues": [
+              "'None'",
+              "'Active'",
+              "'CityNotSupported'",
+              "'Pending'",
+              "'Inactive'"
+            ],
+            "optional": true,
+            "field": "company.fiscalStatus",
+            "description": "<p>Fiscal status.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "field": "company.certificate",
+            "description": "<p>Certificate object.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "company.certificate.thumbprint",
+            "description": "<p>Certificate thumbprint.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "company.certificate.modifiedOn",
+            "description": "<p>Date of modification.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "company.certificate.expiresOn",
+            "description": "<p>Date of expiration.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "allowedValues": [
+              "'None'",
+              "'Active'",
+              "'Overdue'",
+              "'Pending'"
+            ],
+            "optional": true,
+            "field": "company.certificate.status",
+            "description": "<p>Status.</p> "
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"companies\": {\n       \"id\": \"5418cef67d10d930b0361f1b\",\n       \"name\": \"VIVO S.A.\",\n       \"tradeName\": \"\",\n       \"federalTaxNumber\": 2449992000164,\n       \"email\": \"\",\n       \"address\": {\n         \"country\": \"BRA\",\n         \"postalCode\": \"70073-901\",\n         \"street\": \"Outros Quadra 1 Bloco G Lote 32\",\n         \"number\": \"S/N\",\n         \"additionalInformation\": \"QUADRA 01 BLOCO G\",\n         \"district\": \"Asa Sul\",\n         \"city\": {\n           \"code\": \"5300108\",\n           \"name\": \"Brasilia\"\n         },\n         \"state\": \"DF\"\n       },\n       \"openningDate\": \"2014-09-10T00:30:59.3348075+00:01\",\n       \"taxRegime\": \"LucroReal\",\n       \"legalNature\": \"SociedadeAnonimaAberta\",\n       \"economicActivities\": [],\n       \"regionalTaxNumber\": 0,\n       \"municipalTaxNumber\": 123456789,\n       \"rpsSerialNumber\": \"IO\",\n       \"rpsNumber\": 0,\n       \"fiscalStatus\": \"Active\",\n       \"certificate\": {\n         \"thumbprint\": \"01234567891B24F5C23BB39880FC3982279\",\n         \"modifiedOn\": \"2014-12-09T17:21:58.6384682+00:00\",\n         \"expiresOn\": \"2015-12-09T17:17:34+00:00\",\n         \"status\": \"Active\"\n       },\n       \"createdOn\": \"2014-09-10T00:30:59.3348075+00:00\",\n       \"modifiedOn\": \"2014-12-13T19:04:30.6776431+00:00\"\n   }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/CompaniesController.cs",
+    "groupTitle": "Companies",
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>API Key access was denied (401 HTTP Status).</p> "
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "get",
+    "url": "companies",
+    "title": "List all companies",
+    "name": "GetAll",
+    "group": "Companies",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "companies",
+            "description": "<p>List of Companies (Array of Objects).</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "companies.id",
+            "description": "<p>The Company unique ID.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "companies.federalTaxNumber",
+            "description": "<p>Federal tax number.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "companies.name",
+            "description": "<p>Legal name of company.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "companies.tradeName",
+            "description": "<p>Trade name of company.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "companies.email",
+            "description": "<p>Email of company.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "companies.address",
+            "description": "<p>The address data.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "companies.address.country",
+            "description": "<p>Country code with 3 alpha based on ISO 3166-1 alpha-3.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "companies.address.postalCode",
+            "description": "<p>Postal code, optional foreign borrowers.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "companies.address.street",
+            "description": "<p>The street name.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "companies.address.number",
+            "description": "<p>The number of address.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "companies.address.additionalInformation",
+            "description": "<p>Any additional information of address.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "companies.address.district",
+            "description": "<p>District of address, optional foreign borrowers.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "field": "companies.address.city",
+            "description": "<p>The city data.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "field": "companies.address.city.code",
+            "description": "<p>City code based on IBGE data.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "field": "companies.address.city.name",
+            "description": "<p>City name.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "companies.address.state",
+            "description": "<p>State abbreviation, optional foreign borrowers.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "companies.openningDate",
+            "description": "<p>Company openning date.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "allowedValues": [
+              "'LucroReal'",
+              "'LucroPresumido'",
+              "'SimplesNacional'",
+              "'MicroempreendedorIndividual'",
+              "'Isento'"
+            ],
+            "optional": true,
+            "field": "companies.taxRegime",
+            "description": "<p>Company tax regime.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "companies.legalNature",
+            "description": "<p>Company legal nature.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": true,
+            "field": "companies.regionalTaxNumber",
+            "description": "<p>State tax number.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "companies.municipalTaxNumber",
+            "description": "<p>Municipal tax number.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "companies.rpsSerialNumber",
+            "description": "<p>Service invoice global RPS Serial number.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": true,
+            "field": "companies.rpsNumber",
+            "description": "<p>Service invoice global RPS number.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "allowedValues": [
+              "'None'",
+              "'Active'",
+              "'CityNotSupported'",
+              "'Pending'",
+              "'Inactive'"
+            ],
+            "optional": true,
+            "field": "companies.fiscalStatus",
+            "description": "<p>Fiscal status.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": true,
+            "field": "companies.certificate",
+            "description": "<p>Certificate object.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "companies.certificate.thumbprint",
+            "description": "<p>Certificate thumbprint.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "companies.certificate.modifiedOn",
+            "description": "<p>Date of modification.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "companies.certificate.expiresOn",
+            "description": "<p>Date of expiration.</p> "
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "allowedValues": [
+              "'None'",
+              "'Active'",
+              "'Overdue'",
+              "'Pending'"
+            ],
+            "optional": true,
+            "field": "companies.certificate.status",
+            "description": "<p>Status.</p> "
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n   \"companies\": [\n     {\n       \"id\": \"5418cef67d10d930b0361f1b\",\n       \"name\": \"VIVO S.A.\",\n       \"tradeName\": \"\",\n       \"federalTaxNumber\": 2449992000164,\n       \"email\": \"\",\n       \"address\": {\n         \"country\": \"BRA\",\n         \"postalCode\": \"70073-901\",\n         \"street\": \"Outros Quadra 1 Bloco G Lote 32\",\n         \"number\": \"S/N\",\n         \"additionalInformation\": \"QUADRA 01 BLOCO G\",\n         \"district\": \"Asa Sul\",\n         \"city\": {\n           \"code\": \"5300108\",\n           \"name\": \"Brasilia\"\n         },\n         \"state\": \"DF\"\n       },\n       \"openningDate\": \"2014-09-10T00:30:59.3348075+00:01\",\n       \"taxRegime\": \"LucroReal\",\n       \"legalNature\": \"SociedadeAnonimaAberta\",\n       \"economicActivities\": [],\n       \"regionalTaxNumber\": 0,\n       \"municipalTaxNumber\": 123456789,\n       \"rpsSerialNumber\": \"IO\",\n       \"rpsNumber\": 0,\n       \"fiscalStatus\": \"Active\",\n       \"certificate\": {\n         \"thumbprint\": \"01234567891B24F5C23BB39880FC3982279\",\n         \"modifiedOn\": \"2014-12-09T17:21:58.6384682+00:00\",\n         \"expiresOn\": \"2015-12-09T17:17:34+00:00\",\n         \"status\": \"Active\"\n       },\n       \"createdOn\": \"2014-09-10T00:30:59.3348075+00:00\",\n       \"modifiedOn\": \"2014-12-13T19:04:30.6776431+00:00\"\n     }\n]}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/CompaniesController.cs",
+    "groupTitle": "Companies",
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>API Key access was denied (401 HTTP Status).</p> "
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
+    "url": "companies/",
+    "title": "Create a Company",
+    "name": "Issue",
+    "group": "Companies",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "company.name",
+            "description": "<p>Legal name of company.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "company.tradeName",
+            "description": "<p>Trade name of company.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "company.federalTaxNumber",
+            "description": "<p>Federal tax number.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "company.email",
+            "description": "<p>Email of company.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "company.address",
+            "description": "<p>The address data.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "company.address.country",
+            "description": "<p>Country code with 3 alpha based on ISO 3166-1 alpha-3.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "company.address.postalCode",
+            "description": "<p>Postal code, optional foreign borrowers.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "company.address.street",
+            "description": "<p>The street name.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "company.address.number",
+            "description": "<p>The number of address.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "company.address.additionalInformation",
+            "description": "<p>Any additional information of address.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "company.address.district",
+            "description": "<p>District of address, optional foreign borrowers.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": true,
+            "field": "company.address.city",
+            "description": "<p>The city data.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": true,
+            "field": "company.address.city.code",
+            "description": "<p>City code based on IBGE data.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": true,
+            "field": "company.address.city.name",
+            "description": "<p>City name.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "company.address.state",
+            "description": "<p>State abbreviation, optional foreign borrowers.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "company.openningDate",
+            "description": "<p>Company openning date.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "'LucroReal'",
+              "'LucroPresumido'",
+              "'SimplesNacional'",
+              "'MicroempreendedorIndividual'",
+              "'Isento'"
+            ],
+            "optional": true,
+            "field": "company.taxRegime",
+            "description": "<p>Company tax regime.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "'EmpresaPublica'",
+              "'SociedadeEconomiaMista'",
+              "'SociedadeAnonimaAberta'",
+              "'SociedadeAnonimaFechada'",
+              "'SociedadeEmpresariaLimitada'",
+              "'SociedadeEmpresariaemNomeColetivo'",
+              "'SociedadeEmpresariaemComanditaSimples'",
+              "'SociedadeEmpresariaemComanditaporAcoes'",
+              "'SociedadeemContaParticipacao'",
+              "'Empresario'",
+              "'Cooperativa'",
+              "'ConsorcioSociedades'",
+              "'GrupoSociedades'",
+              "'EmpresaDomiciliadaExterior'",
+              "'ClubeFundoInvestimento'",
+              "'SociedadeSimplesPura'",
+              "'SociedadeSimplesLimitada'",
+              "'SociedadeSimplesemNomeColetivo'",
+              "'SociedadeSimplesemComanditaSimples'",
+              "'EmpresaBinacional'",
+              "'ConsorcioEmpregadores'",
+              "'ConsorcioSimples'",
+              "'EireliNaturezaEmpresaria'",
+              "'EireliNaturezaSimples'",
+              "'ServicoNotarial'",
+              "'FundacaoPrivada'",
+              "'ServicoSocialAutonomo'",
+              "'CondominioEdilicio'",
+              "'ComissaoConciliacaoPrevia'",
+              "'EntidadeMediacaoArbitragem'",
+              "'PartidoPolitico'",
+              "'EntidadeSindical'",
+              "'EstabelecimentoBrasilFundacaoAssociacaoEstrangeiras'",
+              "'FundacaoAssociacaoDomiciliadaExterior'",
+              "'OrganizacaoReligiosa'",
+              "'ComunidadeIndigena'",
+              "'FundoPrivado'",
+              "'AssociacaoPrivada'"
+            ],
+            "optional": false,
+            "field": "company.legalNature",
+            "description": "<p>Company legal nature.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": true,
+            "field": "company.regionalTaxNumber",
+            "description": "<p>State tax number.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "company.municipalTaxNumber",
+            "description": "<p>Municipal tax number.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "company.rpsSerialNumber",
+            "description": "<p>Service invoice global RPS Serial number.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": true,
+            "field": "company.rpsNumber",
+            "description": "<p>Service invoice global RPS number.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "'None'",
+              "'Active'",
+              "'CityNotSupported'",
+              "'Pending'",
+              "'Inactive'"
+            ],
+            "optional": true,
+            "field": "company.fiscalStatus",
+            "description": "<p>Fiscal status.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": true,
+            "field": "company.certificate",
+            "description": "<p>Certificate object.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "company.certificate.thumbprint",
+            "description": "<p>Certificate thumbprint.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "company.certificate.modifiedOn",
+            "description": "<p>Date of modification.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "company.certificate.expiresOn",
+            "description": "<p>Date of expiration.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "'None'",
+              "'Active'",
+              "'Overdue'",
+              "'Pending'"
+            ],
+            "optional": true,
+            "field": "company.certificate.status",
+            "description": "<p>Status.</p> "
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 202 Accepted\nLocation: v1/companies/:company_id/serviceinvoices/:id",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "src/CompaniesController.cs",
+    "groupTitle": "Companies",
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>API Key access was denied (401 HTTP Status).</p> "
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "CompanyNotFound",
+            "description": "<p>Company unique ID was not found (404 HTTP Status).</p> "
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "ServiceInvoiceNotFound",
+            "description": "<p>Service invoice was not found based on the ID (404 HTTP Status).</p> "
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "delete",
     "url": "companies/:company_id/serviceinvoices/:id",
     "title": "Cancel a service invoice",
@@ -29,7 +857,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "    HTTP/1.1 202 Accepted\n    Location: v1/companies/:company_id/serviceinvoices/:id",
+          "content": "HTTP/1.1 202 Accepted\nLocation: v1/companies/:company_id/serviceinvoices/:id",
           "type": "json"
         }
       ]
@@ -590,7 +1418,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "    HTTP/1.1 200 OK\n    {\n       \"id\": \"54879dec2916f90728a92fd2\",\n       \"flowStatus\": \"Issued\",\n       \"provider\": {\n         \"id\": \"54879dec2916f90728a92fd2\",\n         \"federalTaxNumber\": 00000000000191,\n         \"name\": \"BANCO DO BRASIL SA\",\n         \"tradeName\": \"\",\n         \"taxRegime\": \"LucroReal\",\n         \"legalNature\": \"SociedadeAnonima\",\n         \"municipalTaxNumber\": 0123456,\n         \"email\": \"\",\n         \"address\": {\n           \"country\": \"BRA\",\n           \"postalCode\": \"70073901\",\n           \"street\": \"Outros Quadra 1 Bloco G Lote 32\",\n           \"number\": \"S/N\",\n           \"additionalInformation\": \"QUADRA 01 BLOCO G\",\n           \"district\": \"Asa Sul\",\n           \"city\": {\n             \"code\": \"5300108\",\n             \"name\": \"Brasilia\"\n           },\n           \"state\": \"DF\"\n         }\n       },\n       \"borrower\": {\n         \"name\": \"JOSE MARIA DA SILVA\",\n         \"federalTaxNumber\": 11111111111,\n         \"email\": \"jose@hotmail.com\",\n         \"address\": {\n           \"country\": \"BRA\",\n           \"postalCode\": \"02310100\",\n           \"street\": \"Av Paulista\",\n           \"number\": \"2300\",\n           \"additionalInformation\": \"\",\n           \"district\": \"Bela Vista\",\n           \"city\": {\n             \"code\": \"3550308\",\n             \"name\": \"São Paulo\"\n           },\n           \"state\": \"SP\"\n         }\n       },\n       \"batchNumber\": 165784958,\n       \"number\": 999,\n       \"checkCode\": \"SBDPCPEY\",\n       \"status\": \"Issued\",\n       \"rpsType\": \"Rps\",\n       \"rpsStatus\": \"Normal\",\n       \"taxationType\": \"Nenhum\",\n       \"issuedOn\": \"2014-12-09T23:12:13.6932436-02:00\",\n       \"rpsSerialNumber\": \"IO\",\n       \"rpsNumber\": 55,\n       \"cityServiceCode\": \"2690\",\n       \"federalServiceCode\": \"1.04\",\n       \"description\": \"TEST DESCRIPTION\",\n       \"servicesAmount\": 0.01,\n       \"deductionsAmount\": 0,\n       \"discountUnconditionedAmount\": 0,\n       \"discountConditionedAmount\": 0,\n       \"baseTaxAmount\": 0.01,\n       \"issRate\": 0.02,\n       \"issTaxAmount\": 0.0002,\n       \"irAmountWithheld\": 0,\n       \"pisAmountWithheld\": 0,\n       \"cofinsAmountWithheld\": 0,\n       \"csllAmountWithheld\": 0,\n       \"inssAmountWithheld\": 0,\n       \"issAmountWithheld\": 0,\n       \"othersAmountWithheld\": 0,\n       \"amountWithheld\": 0,\n       \"amountNet\": 0.01,\n       \"createdOn\": \"2014-12-10T01:12:12.1602396+00:00\",\n       \"modifiedOn\": \"2014-12-10T01:13:03.4274719+00:00\"\n  }",
+          "content": "  HTTP/1.1 200 OK\n  {\n     \"id\": \"54879dec2916f90728a92fd2\",\n     \"flowStatus\": \"Issued\",\n     \"provider\": {\n       \"id\": \"54879dec2916f90728a92fd2\",\n       \"federalTaxNumber\": 00000000000191,\n       \"name\": \"BANCO DO BRASIL SA\",\n       \"tradeName\": \"\",\n       \"taxRegime\": \"LucroReal\",\n       \"legalNature\": \"SociedadeAnonima\",\n       \"municipalTaxNumber\": 0123456,\n       \"email\": \"\",\n       \"address\": {\n         \"country\": \"BRA\",\n         \"postalCode\": \"70073901\",\n         \"street\": \"Outros Quadra 1 Bloco G Lote 32\",\n         \"number\": \"S/N\",\n         \"additionalInformation\": \"QUADRA 01 BLOCO G\",\n         \"district\": \"Asa Sul\",\n         \"city\": {\n           \"code\": \"5300108\",\n           \"name\": \"Brasilia\"\n         },\n         \"state\": \"DF\"\n       }\n     },\n     \"borrower\": {\n       \"name\": \"JOSE MARIA DA SILVA\",\n       \"federalTaxNumber\": 11111111111,\n       \"email\": \"jose@hotmail.com\",\n       \"address\": {\n         \"country\": \"BRA\",\n         \"postalCode\": \"02310100\",\n         \"street\": \"Av Paulista\",\n         \"number\": \"2300\",\n         \"additionalInformation\": \"\",\n         \"district\": \"Bela Vista\",\n         \"city\": {\n           \"code\": \"3550308\",\n           \"name\": \"São Paulo\"\n         },\n         \"state\": \"SP\"\n       }\n     },\n     \"batchNumber\": 165784958,\n     \"number\": 999,\n     \"checkCode\": \"SBDPCPEY\",\n     \"status\": \"Issued\",\n     \"rpsType\": \"Rps\",\n     \"rpsStatus\": \"Normal\",\n     \"taxationType\": \"Nenhum\",\n     \"issuedOn\": \"2014-12-09T23:12:13.6932436-02:00\",\n     \"rpsSerialNumber\": \"IO\",\n     \"rpsNumber\": 55,\n     \"cityServiceCode\": \"2690\",\n     \"federalServiceCode\": \"1.04\",\n     \"description\": \"TEST DESCRIPTION\",\n     \"servicesAmount\": 0.01,\n     \"deductionsAmount\": 0,\n     \"discountUnconditionedAmount\": 0,\n     \"discountConditionedAmount\": 0,\n     \"baseTaxAmount\": 0.01,\n     \"issRate\": 0.02,\n     \"issTaxAmount\": 0.0002,\n     \"irAmountWithheld\": 0,\n     \"pisAmountWithheld\": 0,\n     \"cofinsAmountWithheld\": 0,\n     \"csllAmountWithheld\": 0,\n     \"inssAmountWithheld\": 0,\n     \"issAmountWithheld\": 0,\n     \"othersAmountWithheld\": 0,\n     \"amountWithheld\": 0,\n     \"amountNet\": 0.01,\n     \"createdOn\": \"2014-12-10T01:12:12.1602396+00:00\",\n     \"modifiedOn\": \"2014-12-10T01:13:03.4274719+00:00\"\n}",
           "type": "json"
         }
       ]
@@ -1186,7 +2014,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "    HTTP/1.1 200 OK\n    {\n        \"totalResults\": 10,\n        \"totalPages\": 1,\n        \"page\": 1,\n        \"serviceInvoices\": [\n         {\n             \"id\": \"54879dec2916f90728a92fd2\",\n             \"flowStatus\": \"Issued\",\n             \"provider\": {\n               \"id\": \"54879dec2916f90728a92fd2\",\n               \"federalTaxNumber\": 00000000000191,\n               \"name\": \"BANCO DO BRASIL SA\",\n               \"tradeName\": \"\",\n               \"taxRegime\": \"LucroReal\",\n               \"legalNature\": \"SociedadeAnonima\",\n               \"municipalTaxNumber\": 123456789,\n               \"email\": \"\",\n               \"address\": {\n                 \"country\": \"\",\n                 \"postalCode\": \"70073-901\",\n                 \"street\": \"Outros Quadra 1 Bloco G Lote 32\",\n                 \"number\": \"S/N\",\n                 \"additionalInformation\": \"QUADRA 01 BLOCO G\",\n                 \"district\": \"Asa Sul\",\n                 \"city\": {\n                   \"code\": \"5300108\",\n                   \"name\": \"Brasilia\"\n                 },\n                 \"state\": \"DF\"\n               }\n             },\n             \"borrower\": {\n               \"name\": \"JOSE MARIA TRINDADE\",\n               \"federalTaxNumber\": 11111111111,\n               \"email\": \"jose@hotmail.com\",\n               \"address\": {\n                 \"country\": \"BRA\",\n                 \"postalCode\": \"06754-280\",\n                 \"street\": \"Rua João Camargo\",\n                 \"number\": \"99\",\n                 \"additionalInformation\": \"\",\n                 \"district\": \"Parque Laguna\",\n                 \"city\": {\n                   \"code\": \"3550308\",\n                   \"name\": \"São Paulo\"\n                 },\n                 \"state\": \"SP\"\n               }\n             },\n             \"batchNumber\": 165784958,\n             \"number\": 999,\n             \"checkCode\": \"SBDPCPEY\",\n             \"status\": \"Issued\",\n             \"rpsType\": \"Rps\",\n             \"rpsStatus\": \"Normal\",\n             \"taxationType\": \"WithinCity\",\n             \"issuedOn\": \"2014-12-09T23:12:13.6932436-02:00\",\n             \"rpsSerialNumber\": \"IO\",\n             \"rpsNumber\": 55,\n             \"cityServiceCode\": \"2690\",\n             \"federalServiceCode\": \"1.04\",\n             \"description\": \"TEST DESCRIPTION\",\n             \"servicesAmount\": 0.01,\n             \"deductionsAmount\": 0,\n             \"discountUnconditionedAmount\": 0,\n             \"discountConditionedAmount\": 0,\n             \"baseTaxAmount\": 0.01,\n             \"issRate\": 0.02,\n             \"issTaxAmount\": 0.0002,\n             \"irAmountWithheld\": 0,\n             \"pisAmountWithheld\": 0,\n             \"cofinsAmountWithheld\": 0,\n             \"csllAmountWithheld\": 0,\n             \"inssAmountWithheld\": 0,\n             \"issAmountWithheld\": 0,\n             \"othersAmountWithheld\": 0,\n             \"amountWithheld\": 0,\n             \"amountNet\": 0.01,\n             \"createdOn\": \"2014-12-10T01:12:12.1602396+00:00\",\n             \"modifiedOn\": \"2014-12-10T01:13:03.4274719+00:00\"\n         }\n     ]}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"totalResults\": 10,\n    \"totalPages\": 1,\n    \"page\": 1,\n    \"serviceInvoices\": [\n     {\n         \"id\": \"54879dec2916f90728a92fd2\",\n         \"flowStatus\": \"Issued\",\n         \"provider\": {\n           \"id\": \"54879dec2916f90728a92fd2\",\n           \"federalTaxNumber\": 00000000000191,\n           \"name\": \"BANCO DO BRASIL SA\",\n           \"tradeName\": \"\",\n           \"taxRegime\": \"LucroReal\",\n           \"legalNature\": \"SociedadeAnonima\",\n           \"municipalTaxNumber\": 123456789,\n           \"email\": \"\",\n           \"address\": {\n             \"country\": \"\",\n             \"postalCode\": \"70073-901\",\n             \"street\": \"Outros Quadra 1 Bloco G Lote 32\",\n             \"number\": \"S/N\",\n             \"additionalInformation\": \"QUADRA 01 BLOCO G\",\n             \"district\": \"Asa Sul\",\n             \"city\": {\n               \"code\": \"5300108\",\n               \"name\": \"Brasilia\"\n             },\n             \"state\": \"DF\"\n           }\n         },\n         \"borrower\": {\n           \"name\": \"JOSE MARIA TRINDADE\",\n           \"federalTaxNumber\": 11111111111,\n           \"email\": \"jose@hotmail.com\",\n           \"address\": {\n             \"country\": \"BRA\",\n             \"postalCode\": \"06754-280\",\n             \"street\": \"Rua João Camargo\",\n             \"number\": \"99\",\n             \"additionalInformation\": \"\",\n             \"district\": \"Parque Laguna\",\n             \"city\": {\n               \"code\": \"3550308\",\n               \"name\": \"São Paulo\"\n             },\n             \"state\": \"SP\"\n           }\n         },\n         \"batchNumber\": 165784958,\n         \"number\": 999,\n         \"checkCode\": \"SBDPCPEY\",\n         \"status\": \"Issued\",\n         \"rpsType\": \"Rps\",\n         \"rpsStatus\": \"Normal\",\n         \"taxationType\": \"WithinCity\",\n         \"issuedOn\": \"2014-12-09T23:12:13.6932436-02:00\",\n         \"rpsSerialNumber\": \"IO\",\n         \"rpsNumber\": 55,\n         \"cityServiceCode\": \"2690\",\n         \"federalServiceCode\": \"1.04\",\n         \"description\": \"TEST DESCRIPTION\",\n         \"servicesAmount\": 0.01,\n         \"deductionsAmount\": 0,\n         \"discountUnconditionedAmount\": 0,\n         \"discountConditionedAmount\": 0,\n         \"baseTaxAmount\": 0.01,\n         \"issRate\": 0.02,\n         \"issTaxAmount\": 0.0002,\n         \"irAmountWithheld\": 0,\n         \"pisAmountWithheld\": 0,\n         \"cofinsAmountWithheld\": 0,\n         \"csllAmountWithheld\": 0,\n         \"inssAmountWithheld\": 0,\n         \"issAmountWithheld\": 0,\n         \"othersAmountWithheld\": 0,\n         \"amountWithheld\": 0,\n         \"amountNet\": 0.01,\n         \"createdOn\": \"2014-12-10T01:12:12.1602396+00:00\",\n         \"modifiedOn\": \"2014-12-10T01:13:03.4274719+00:00\"\n     }\n ]}",
           "type": "json"
         }
       ]
@@ -1249,7 +2077,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "    HTTP/1.1 302 Found\n    Location: Location of file",
+          "content": "HTTP/1.1 302 Found\nLocation: Location of file",
           "type": "json"
         }
       ]
@@ -1312,7 +2140,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "    HTTP/1.1 302 Found\n    Location: Location of file",
+          "content": "HTTP/1.1 302 Found\nLocation: Location of file",
           "type": "json"
         }
       ]
@@ -1623,7 +2451,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "    HTTP/1.1 202 Accepted\n    Location: v1/companies/:company_id/serviceinvoices/:id",
+          "content": "HTTP/1.1 202 Accepted\nLocation: v1/companies/:company_id/serviceinvoices/:id",
           "type": "json"
         }
       ]

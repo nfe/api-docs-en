@@ -17,7 +17,7 @@ public class CompaniesController
     * @apiSuccess {Number} companies.federalTaxNumber Federal tax number.
     * @apiSuccess {String} companies.name Legal name of company.
     * @apiSuccess {String} [companies.tradeName] Trade name of company.
-    * @apiSuccess {String} companies.email Email of company.    
+    * @apiSuccess {String} companies.email Email of company.
     * @apiSuccess {Object} companies.address The address data.
     * @apiSuccess {String} companies.address.country Country code with 3 alpha based on ISO 3166-1 alpha-3.
     * @apiSuccess {String} [companies.address.postalCode] Postal code, optional foreign borrowers.
@@ -84,7 +84,7 @@ public class CompaniesController
     *            "createdOn": "2014-09-10T00:30:59.3348075+00:00",
     *            "modifiedOn": "2014-12-13T19:04:30.6776431+00:00"
     *          }
-    *     ]}   
+    *     ]}
     *
     */
     [Route("")]
@@ -104,7 +104,7 @@ public class CompaniesController
     * @apiSuccess {Number} company.federalTaxNumber Federal tax number.
     * @apiSuccess {String} company.name Legal name of company.
     * @apiSuccess {String} [company.tradeName] Trade name of company.
-    * @apiSuccess {String} company.email Email of company.    
+    * @apiSuccess {String} company.email Email of company.
     * @apiSuccess {Object} company.address The address data.
     * @apiSuccess {String} company.address.country Country code with 3 alpha based on ISO 3166-1 alpha-3.
     * @apiSuccess {String} [company.address.postalCode] Postal code, optional foreign borrowers.
@@ -170,7 +170,7 @@ public class CompaniesController
     *            "createdOn": "2014-09-10T00:30:59.3348075+00:00",
     *            "modifiedOn": "2014-12-13T19:04:30.6776431+00:00"
     *        }
-    *     }   
+    *     }
     *
     */
     [Route("{company_id_or_tax_number}")]
@@ -179,6 +179,50 @@ public class CompaniesController
     public async Task<IHttpActionResult> Get(string company_id_or_tax_number)
     { }
 
+    /**
+    * @api {post} companies/ Create a Company
+    * @apiName Issue
+    * @apiGroup Companies
+    *
+    * @apiParam {String} company.name Legal name of company.
+    * @apiParam {String} [company.tradeName] Trade name of company.
+    * @apiParam {Number} company.federalTaxNumber Federal tax number.
+    * @apiParam {String} company.email Email of company.
+    * @apiParam {Object} company.address The address data.
+    * @apiParam {String} company.address.country Country code with 3 alpha based on ISO 3166-1 alpha-3.
+    * @apiParam {String} [company.address.postalCode] Postal code, optional foreign borrowers.
+    * @apiParam {String} company.address.street The street name.
+    * @apiParam {String} [company.address.number] The number of address.
+    * @apiParam {String} [company.address.additionalInformation] Any additional information of address.
+    * @apiParam {String} [company.address.district] District of address, optional foreign borrowers.
+    * @apiParam {Object} [company.address.city] The city data.
+    * @apiParam {Object} [company.address.city.code] City code based on IBGE data.
+    * @apiParam {Object} [company.address.city.name] City name.
+    * @apiParam {String} [company.address.state] State abbreviation, optional foreign borrowers.
+    * @apiParam {String} company.openningDate Company openning date.
+    * @apiParam {String='LucroReal','LucroPresumido','SimplesNacional','MicroempreendedorIndividual','Isento'} [company.taxRegime] Company tax regime.
+
+    * @apiParam {String='EmpresaPublica', 'SociedadeEconomiaMista', 'SociedadeAnonimaAberta', 'SociedadeAnonimaFechada', 'SociedadeEmpresariaLimitada', 'SociedadeEmpresariaemNomeColetivo', 'SociedadeEmpresariaemComanditaSimples', 'SociedadeEmpresariaemComanditaporAcoes', 'SociedadeemContaParticipacao', 'Empresario','Cooperativa', 'ConsorcioSociedades', 'GrupoSociedades', 'EmpresaDomiciliadaExterior', 'ClubeFundoInvestimento','SociedadeSimplesPura', 'SociedadeSimplesLimitada', 'SociedadeSimplesemNomeColetivo','SociedadeSimplesemComanditaSimples', 'EmpresaBinacional', 'ConsorcioEmpregadores', 'ConsorcioSimples','EireliNaturezaEmpresaria','EireliNaturezaSimples', 'ServicoNotarial', 'FundacaoPrivada', 'ServicoSocialAutonomo', 'CondominioEdilicio', 'ComissaoConciliacaoPrevia', 'EntidadeMediacaoArbitragem', 'PartidoPolitico', 'EntidadeSindical', 'EstabelecimentoBrasilFundacaoAssociacaoEstrangeiras', 'FundacaoAssociacaoDomiciliadaExterior', 'OrganizacaoReligiosa', 'ComunidadeIndigena', 'FundoPrivado', 'AssociacaoPrivada'} company.legalNature Company legal nature.
+    * @apiParam {String} [company.legalNature] Company legal nature.
+    * @apiParam {Number} [company.regionalTaxNumber] State tax number.
+    * @apiParam {Number} company.municipalTaxNumber Municipal tax number.
+    * @apiParam {String} [company.rpsSerialNumber] Service invoice global RPS Serial number.
+    * @apiParam {Number} [company.rpsNumber] Service invoice global RPS number.
+    * @apiParam {String='None','Active','CityNotSupported','Pending','Inactive'} [company.fiscalStatus] Fiscal status.
+    * @apiParam {Object} [company.certificate] Certificate object.
+    * @apiParam {String} [company.certificate.thumbprint] Certificate thumbprint.
+    * @apiParam {String} [company.certificate.modifiedOn] Date of modification.
+    * @apiParam {String} [company.certificate.expiresOn] Date of expiration.
+    * @apiParam {String='None','Active','Overdue','Pending'} [company.certificate.status] Status.
+    *
+    * @apiUse Unauthorized
+    * @apiUse CompanyNotFound
+    * @apiUse ServiceInvoiceNotFound
+    *
+    * @apiSuccessExample Success-Response:
+    *     HTTP/1.1 202 Accepted
+    *     Location: v1/companies/:company_id/serviceinvoices/:id
+    */
     /// <summary>
     /// Criar uma empresa
     /// </summary>
