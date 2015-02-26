@@ -213,14 +213,12 @@ public class CompaniesController
     * @apiParam {String} [company.certificate.expiresOn] Date of expiration.
     * @apiParam {String='None','Active','Overdue','Pending'} [company.certificate.status] Status.
     *
-    * @apiUse Unauthorized
-    * @apiUse ServiceInvoiceNotFound
+    * @apiError BadRequest A parameter was invalid.
+    * @apiError Unauthorized Authorization has been denied for this request.
+    * @apiError Forbidden  The API KEY is not valid for this account.
+    * @apiError Conflict Federal Tax Number already taken.
+    * @apiError InternalServerError There was an error while processing the request.
     *
-    * @apiError BadRequest
-    *
-    * @apiSuccessExample Success-Response:
-    *     HTTP/1.1 202 Accepted
-    *     Location: v1/companies/:company_id/serviceinvoices/:id
     */
     /// <summary>
     /// Criar uma empresa

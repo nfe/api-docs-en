@@ -797,31 +797,34 @@ define({ "api": [
             "group": "Error 4xx",
             "optional": false,
             "field": "BadRequest",
-            "description": ""
+            "description": "<p>A parameter was invalid.</p> "
           },
           {
             "group": "Error 4xx",
             "optional": false,
             "field": "Unauthorized",
-            "description": "<p>API Key access was denied (401 HTTP Status).</p> "
+            "description": "<p>Authorization has been denied for this request.</p> "
           },
           {
             "group": "Error 4xx",
             "optional": false,
-            "field": "ServiceInvoiceNotFound",
-            "description": "<p>Service invoice was not found based on the ID (404 HTTP Status).</p> "
+            "field": "Forbidden",
+            "description": "<p>The API KEY is not valid for this account.</p> "
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "Conflict",
+            "description": "<p>Federal Tax Number already taken.</p> "
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "InternalServerError",
+            "description": "<p>There was an error while processing the request.</p> "
           }
         ]
       }
-    },
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 202 Accepted\nLocation: v1/companies/:company_id/serviceinvoices/:id",
-          "type": "json"
-        }
-      ]
     },
     "version": "0.0.0",
     "filename": "src/CompaniesController.cs",
