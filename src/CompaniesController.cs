@@ -177,11 +177,6 @@ public class CompaniesController
     * @apiParam {String} [company.rpsSerialNumber] Service invoice global RPS Serial number.
     * @apiParam {Number} [company.rpsNumber] Service invoice global RPS number.
     * @apiParam {String='None','Active','CityNotSupported','Pending','Inactive'} [company.fiscalStatus] Fiscal status.
-    * @apiParam {Object} [company.certificate] Certificate object.
-    * @apiParam {String} [company.certificate.thumbprint] Certificate thumbprint.
-    * @apiParam {String} [company.certificate.modifiedOn] Date of modification.
-    * @apiParam {String} [company.certificate.expiresOn] Date of expiration.
-    * @apiParam {String='None','Active','Overdue','Pending'} [company.certificate.status] Status.
     *
     * @apiError BadRequest A parameter was invalid.
     * @apiError Unauthorized Authorization has been denied for this request.

@@ -518,47 +518,6 @@ define({ "api": [
             "optional": true,
             "field": "company.fiscalStatus",
             "description": "<p>Fiscal status.</p> "
-          },
-          {
-            "group": "Parameter",
-            "type": "Object",
-            "optional": true,
-            "field": "company.certificate",
-            "description": "<p>Certificate object.</p> "
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "company.certificate.thumbprint",
-            "description": "<p>Certificate thumbprint.</p> "
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "company.certificate.modifiedOn",
-            "description": "<p>Date of modification.</p> "
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "company.certificate.expiresOn",
-            "description": "<p>Date of expiration.</p> "
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "allowedValues": [
-              "'None'",
-              "'Active'",
-              "'Overdue'",
-              "'Pending'"
-            ],
-            "optional": true,
-            "field": "company.certificate.status",
-            "description": "<p>Status.</p> "
           }
         ]
       }
