@@ -151,7 +151,6 @@ public class CompaniesController
 
     /**
     * @api {post} companies Create a Company
-    * @apiName Issue
     * @apiGroup Companies
     *
     * @apiParam {String} company.name Legal name of company.
@@ -198,7 +197,41 @@ public class CompaniesController
     [ResponseType(typeof(CompanySingleResource))]
     public async Task<IHttpActionResult> Post(CompanyResource item)
     { }
-
+    /**
+    * @api {post} companies/:company_id_or_tax_number Update a Company
+    * @apiGroup Companies
+    *
+    * @apiParam {String} company.name Legal name of company.
+    * @apiParam {String} [company.tradeName] Trade name of company.
+    * @apiParam {Number} company.federalTaxNumber Federal tax number.
+    * @apiParam {String} company.email Email of company.
+    * @apiParam {Object} [company.address] The address data.
+    * @apiParam {String} company.address.country Country code with 3 alpha based on ISO 3166-1 alpha-3.
+    * @apiParam {String} [company.address.postalCode] Postal code, optional foreign borrowers.
+    * @apiParam {String} company.address.street The street name.
+    * @apiParam {String} company.address.number The number of address.
+    * @apiParam {String} [company.address.additionalInformation] Any additional information of address.
+    * @apiParam {String} [company.address.district] District of address, optional foreign borrowers.
+    * @apiParam {Object} [company.address.city] The city data.
+    * @apiParam {Object} [company.address.city.code] City code based on IBGE data.
+    * @apiParam {Object} [company.address.city.name] City name.
+    * @apiParam {String} [company.address.state] State abbreviation, optional foreign borrowers.
+    * @apiParam {String} company.openningDate Company openning date.
+    * @apiParam {String='LucroReal','LucroPresumido','SimplesNacional','MicroempreendedorIndividual','Isento'} company.taxRegime Company tax regime.
+    * @apiParam {String='EmpresaPublica', 'SociedadeEconomiaMista', 'SociedadeAnonimaAberta', 'SociedadeAnonimaFechada', 'SociedadeEmpresariaLimitada', 'SociedadeEmpresariaemNomeColetivo', 'SociedadeEmpresariaemComanditaSimples', 'SociedadeEmpresariaemComanditaporAcoes', 'SociedadeemContaParticipacao', 'Empresario','Cooperativa', 'ConsorcioSociedades', 'GrupoSociedades', 'EmpresaDomiciliadaExterior', 'ClubeFundoInvestimento','SociedadeSimplesPura', 'SociedadeSimplesLimitada', 'SociedadeSimplesemNomeColetivo','SociedadeSimplesemComanditaSimples', 'EmpresaBinacional', 'ConsorcioEmpregadores', 'ConsorcioSimples','EireliNaturezaEmpresaria','EireliNaturezaSimples', 'ServicoNotarial', 'FundacaoPrivada', 'ServicoSocialAutonomo', 'CondominioEdilicio', 'ComissaoConciliacaoPrevia', 'EntidadeMediacaoArbitragem', 'PartidoPolitico', 'EntidadeSindical', 'EstabelecimentoBrasilFundacaoAssociacaoEstrangeiras', 'FundacaoAssociacaoDomiciliadaExterior', 'OrganizacaoReligiosa', 'ComunidadeIndigena', 'FundoPrivado', 'AssociacaoPrivada'} company.legalNature Company legal nature.
+    * @apiParam {Number} [company.regionalTaxNumber] State tax number.
+    * @apiParam {Number} company.municipalTaxNumber Municipal tax number.
+    * @apiParam {String} [company.rpsSerialNumber] Service invoice global RPS Serial number.
+    * @apiParam {Number} [company.rpsNumber] Service invoice global RPS number.
+    * @apiParam {String='None','Active','CityNotSupported','Pending','Inactive'} [company.fiscalStatus] Fiscal status.
+    *
+    * @apiError BadRequest A parameter was invalid.
+    * @apiError Unauthorized Authorization has been denied for this request.
+    * @apiError Forbidden  The API KEY is not valid for this account.
+    * @apiError Conflict Federal Tax Number already taken.
+    * @apiError InternalServerError There was an error while processing the request.
+    *
+    */
     /// <summary>
     /// Atualizar uma empresa
     /// </summary>

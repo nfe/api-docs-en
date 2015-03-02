@@ -299,7 +299,6 @@
     "type": "post",
     "url": "companies",
     "title": "Create a Company",
-    "name": "Issue",
     "group": "Companies",
     "parameter": {
       "fields": {
@@ -560,7 +559,275 @@
     },
     "version": "0.0.0",
     "filename": "src/CompaniesController.cs",
-    "groupTitle": "Companies"
+    "groupTitle": "Companies",
+    "name": "PostCompanies"
+  },
+  {
+    "type": "post",
+    "url": "companies/:company_id_or_tax_number",
+    "title": "Update a Company",
+    "group": "Companies",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "company.name",
+            "description": "<p>Legal name of company.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "company.tradeName",
+            "description": "<p>Trade name of company.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "company.federalTaxNumber",
+            "description": "<p>Federal tax number.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "company.email",
+            "description": "<p>Email of company.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": true,
+            "field": "company.address",
+            "description": "<p>The address data.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "company.address.country",
+            "description": "<p>Country code with 3 alpha based on ISO 3166-1 alpha-3.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "company.address.postalCode",
+            "description": "<p>Postal code, optional foreign borrowers.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "company.address.street",
+            "description": "<p>The street name.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "company.address.number",
+            "description": "<p>The number of address.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "company.address.additionalInformation",
+            "description": "<p>Any additional information of address.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "company.address.district",
+            "description": "<p>District of address, optional foreign borrowers.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": true,
+            "field": "company.address.city",
+            "description": "<p>The city data.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": true,
+            "field": "company.address.city.code",
+            "description": "<p>City code based on IBGE data.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": true,
+            "field": "company.address.city.name",
+            "description": "<p>City name.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "company.address.state",
+            "description": "<p>State abbreviation, optional foreign borrowers.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "company.openningDate",
+            "description": "<p>Company openning date.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "'LucroReal'",
+              "'LucroPresumido'",
+              "'SimplesNacional'",
+              "'MicroempreendedorIndividual'",
+              "'Isento'"
+            ],
+            "optional": false,
+            "field": "company.taxRegime",
+            "description": "<p>Company tax regime.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "'EmpresaPublica'",
+              "'SociedadeEconomiaMista'",
+              "'SociedadeAnonimaAberta'",
+              "'SociedadeAnonimaFechada'",
+              "'SociedadeEmpresariaLimitada'",
+              "'SociedadeEmpresariaemNomeColetivo'",
+              "'SociedadeEmpresariaemComanditaSimples'",
+              "'SociedadeEmpresariaemComanditaporAcoes'",
+              "'SociedadeemContaParticipacao'",
+              "'Empresario'",
+              "'Cooperativa'",
+              "'ConsorcioSociedades'",
+              "'GrupoSociedades'",
+              "'EmpresaDomiciliadaExterior'",
+              "'ClubeFundoInvestimento'",
+              "'SociedadeSimplesPura'",
+              "'SociedadeSimplesLimitada'",
+              "'SociedadeSimplesemNomeColetivo'",
+              "'SociedadeSimplesemComanditaSimples'",
+              "'EmpresaBinacional'",
+              "'ConsorcioEmpregadores'",
+              "'ConsorcioSimples'",
+              "'EireliNaturezaEmpresaria'",
+              "'EireliNaturezaSimples'",
+              "'ServicoNotarial'",
+              "'FundacaoPrivada'",
+              "'ServicoSocialAutonomo'",
+              "'CondominioEdilicio'",
+              "'ComissaoConciliacaoPrevia'",
+              "'EntidadeMediacaoArbitragem'",
+              "'PartidoPolitico'",
+              "'EntidadeSindical'",
+              "'EstabelecimentoBrasilFundacaoAssociacaoEstrangeiras'",
+              "'FundacaoAssociacaoDomiciliadaExterior'",
+              "'OrganizacaoReligiosa'",
+              "'ComunidadeIndigena'",
+              "'FundoPrivado'",
+              "'AssociacaoPrivada'"
+            ],
+            "optional": false,
+            "field": "company.legalNature",
+            "description": "<p>Company legal nature.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": true,
+            "field": "company.regionalTaxNumber",
+            "description": "<p>State tax number.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": false,
+            "field": "company.municipalTaxNumber",
+            "description": "<p>Municipal tax number.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "company.rpsSerialNumber",
+            "description": "<p>Service invoice global RPS Serial number.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "optional": true,
+            "field": "company.rpsNumber",
+            "description": "<p>Service invoice global RPS number.</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "allowedValues": [
+              "'None'",
+              "'Active'",
+              "'CityNotSupported'",
+              "'Pending'",
+              "'Inactive'"
+            ],
+            "optional": true,
+            "field": "company.fiscalStatus",
+            "description": "<p>Fiscal status.</p> "
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "BadRequest",
+            "description": "<p>A parameter was invalid.</p> "
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Authorization has been denied for this request.</p> "
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>The API KEY is not valid for this account.</p> "
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "Conflict",
+            "description": "<p>Federal Tax Number already taken.</p> "
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "InternalServerError",
+            "description": "<p>There was an error while processing the request.</p> "
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/CompaniesController.cs",
+    "groupTitle": "Companies",
+    "name": "PostCompaniesCompany_id_or_tax_number"
   },
   {
     "type": "delete",
