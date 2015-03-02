@@ -2,7 +2,7 @@
   {
     "type": "get",
     "url": "companies/:company_id_or_tax_number",
-    "title": "Get company details",
+    "title": "Get Company Details",
     "name": "Get",
     "group": "Companies",
     "success": {

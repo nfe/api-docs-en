@@ -94,7 +94,7 @@ public class CompaniesController
     { }
 
   /**
-    * @api {get} companies/:company_id_or_tax_number Get company details
+    * @api {get} companies/:company_id_or_tax_number Get Company Details
     * @apiName Get
     * @apiGroup Companies
     *
