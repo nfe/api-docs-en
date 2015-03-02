@@ -100,36 +100,6 @@ public class CompaniesController
     *
     * @apiUse Unauthorized
     *
-    * @apiSuccess {String} company.id The Company unique ID.
-    * @apiSuccess {Number} company.federalTaxNumber Federal tax number.
-    * @apiSuccess {String} company.name Legal name of company.
-    * @apiSuccess {String} [company.tradeName] Trade name of company.
-    * @apiSuccess {String} company.email Email of company.
-    * @apiSuccess {Object} company.address The address data.
-    * @apiSuccess {String} company.address.country Country code with 3 alpha based on ISO 3166-1 alpha-3.
-    * @apiSuccess {String} [company.address.postalCode] Postal code, optional foreign borrowers.
-    * @apiSuccess {String} company.address.street The street name.
-    * @apiSuccess {String} [company.address.number] The number of address.
-    * @apiSuccess {String} [company.address.additionalInformation] Any additional information of address.
-    * @apiSuccess {String} [company.address.district] District of address, optional foreign borrowers.
-    * @apiSuccess {Object} [company.address.city] The city data.
-    * @apiSuccess {Object} [company.address.city.code] City code based on IBGE data.
-    * @apiSuccess {Object} [company.address.city.name] City name.
-    * @apiSuccess {String} [company.address.state] State abbreviation, optional foreign borrowers.
-    * @apiSuccess {String} [company.openningDate] Company openning date.
-    * @apiSuccess {String='LucroReal','LucroPresumido','SimplesNacional','MicroempreendedorIndividual','Isento'} [company.taxRegime] Company tax regime.
-    * @apiSuccess {String} [company.legalNature] Company legal nature.
-    * @apiSuccess {Number} [company.regionalTaxNumber] State tax number.
-    * @apiSuccess {Number} company.municipalTaxNumber Municipal tax number.
-    * @apiSuccess {String} [company.rpsSerialNumber] Service invoice global RPS Serial number.
-    * @apiSuccess {Number} [company.rpsNumber] Service invoice global RPS number.
-    * @apiSuccess {String='None','Active','CityNotSupported','Pending','Inactive'} [company.fiscalStatus] Fiscal status.
-    * @apiSuccess {Object} [company.certificate] Certificate object.
-    * @apiSuccess {String} [company.certificate.thumbprint] Certificate thumbprint.
-    * @apiSuccess {String} [company.certificate.modifiedOn] Date of modification.
-    * @apiSuccess {String} [company.certificate.expiresOn] Date of expiration.
-    * @apiSuccess {String='None','Active','Overdue','Pending'} [company.certificate.status] Status.
-    *
     * @apiSuccessExample Success-Response:
     *     HTTP/1.1 200 OK
     *     {
